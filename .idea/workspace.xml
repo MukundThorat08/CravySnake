@@ -5,39 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="702fe124-44e4-43cf-9807-412396299b27" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/PilotCommand.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/PilotCommandHalftone.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/PilotCommandLaser.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/exit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/grid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/level.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/pause.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/paused.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/play.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/rankButton.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/reset.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/score_display_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/setting_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/snake.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/startButton.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/sound/eat.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/sound/fun_sound.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/sound/gameOver.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Color.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Defination.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePlay.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game_over_screen.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home.spec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_file_manager.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeGame_1.0--installer.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceCode/database.json" beforeDir="false" afterPath="$PROJECT_DIR$/SourceCode/database.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +31,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "E:/GitHub/SnakeGame",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,7 +47,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700401116696</updated>
-      <workItem from="1700401121431" duration="1213000" />
+      <workItem from="1700401121431" duration="1536000" />
+      <workItem from="1700476618529" duration="145000" />
+      <workItem from="1701186029344" duration="23000" />
     </task>
     <servers />
   </component>
