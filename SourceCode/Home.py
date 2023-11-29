@@ -3,7 +3,7 @@ import pygame
 import Color
 import Defination
 import graphics
-from common import CreateWindow
+from alignment import CreateWindow
 import json_file_manager
 
 pygame.init()

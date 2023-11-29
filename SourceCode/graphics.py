@@ -1,6 +1,6 @@
 import pygame
 import os
-import common
+import alignment
 
 pygame.init()
 # images
@@ -27,7 +27,7 @@ laser_font_60 = pygame.font.Font(os.path.join('Assets/Fonts', 'PilotCommandLaser
 pilot_font = pygame.font.Font(os.path.join('Assets/Fonts', 'PilotCommand.otf'), 25)
 pilot_halftone_font = pygame.font.Font(os.path.join('Assets/Fonts', 'PilotCommandHalftone.otf'), 65)
 
-instance = common.CreateWindow()
+instance = alignment.CreateWindow()
 snake_img.get_rect()
 
 

@@ -1,41 +1,24 @@
-from random import randrange
 import pygame
 import Color
 import graphics
 import json_file_manager
+import magic_food_manager
+from base_data import GRID_WIDTH, GRID_HEIGHT, CELL_SIZE, SCREEN_WIDTH, SCREEN_HEIGHT, GRID_X, GRID_Y
+import base_data
 
 pygame.init()
 
-
-# GAME VARIABLES
-SCREEN_WIDTH, SCREEN_HEIGHT = 645, 600
-GRID_WIDTH, GRID_HEIGHT = 600, 500
-CELL_SIZE = 25
 initial_snake_pos = [GRID_WIDTH // 2, GRID_HEIGHT // 2]
 snake_pos = [initial_snake_pos]
-score = 0
-with open('database.json') as file:
-    high_score = json_file_manager.get_json_data('highScore')
 
-FPS = 10
 snake_velocity = [CELL_SIZE, 0]
 paused = False
+
 # Common Config
 SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Snake Game")
 
-
-GRID_X, GRID_Y = (SCREEN_WIDTH - graphics.grid_img.get_width()) // 2 + 3,\
-    (SCREEN_HEIGHT - graphics.grid_img.get_height()) // 2
-
-
-def random_position_generator():
-    random_x = randrange(GRID_X + CELL_SIZE, (GRID_X + GRID_WIDTH))
-    random_y = randrange(GRID_Y + CELL_SIZE, (GRID_Y + GRID_HEIGHT))
-    return [((random_x // CELL_SIZE) * CELL_SIZE) - CELL_SIZE, ((random_y // CELL_SIZE) * CELL_SIZE) - CELL_SIZE]
-
-
-food_pos = random_position_generator()
+food_pos = base_data.random_position_generator()
 pause_game_img = graphics.pause_img
 
 
@@ -45,9 +28,9 @@ def draw_graphics():
     graphics.load_image(SCREEN, graphics.grid_img, (True, True), (3, 0))
     graphics.load_image(SCREEN, pause_game_img, (25, 556))
     graphics.load_image(SCREEN, graphics.exit_img, (580, 556))
-    graphics.load_text(SCREEN, graphics.laser_font, f"SCORE : {score}", Color.SCORE_COLOR, (GRID_X, 10))
-    graphics.load_text(SCREEN, graphics.laser_font, f"HIGH SCORE: {high_score}", Color.SCORE_COLOR,
-                       ((GRID_X + GRID_WIDTH) - graphics.laser_font.size(f"HIGH SCORE: {high_score}")[0], 10))
+    graphics.load_text(SCREEN, graphics.laser_font, f"SCORE : {base_data.score}", Color.SCORE_COLOR, (GRID_X, 10))
+    graphics.load_text(SCREEN, graphics.laser_font, f"HIGH SCORE: {base_data.high_score}", Color.SCORE_COLOR,
+                       ((GRID_X + GRID_WIDTH) - graphics.laser_font.size(f"HIGH SCORE: {base_data.high_score}")[0], 10))
 
 
 def snake_and_food_drawer():
@@ -56,6 +39,9 @@ def snake_and_food_drawer():
                               CELL_SIZE, CELL_SIZE))
     food = pygame.draw.rect(SCREEN, Color.RED, (food_pos[0], food_pos[1],
                                                 CELL_SIZE, CELL_SIZE))
+    if magic_food_manager.display_magic_food is True:
+        magic_food_manager.spawn_magic_food_and_timer(SCREEN, snake)
+
     snake_death()
     return snake, food
 
@@ -73,14 +59,19 @@ def snake_mover(event):
         from Home import home_loop
         home_loop()
     if not paused:
+        
         if event.key == pygame.K_LEFT and snake_velocity != [CELL_SIZE, 0]:
             snake_velocity = [-CELL_SIZE, 0]
+            print("left")
         elif event.key == pygame.K_RIGHT and snake_velocity != [-CELL_SIZE, 0]:
             snake_velocity = [CELL_SIZE, 0]
+            print("right")
         elif event.key == pygame.K_UP and snake_velocity != [0, CELL_SIZE]:
             snake_velocity = [0, -CELL_SIZE]
+            print("up")
         elif event.key == pygame.K_DOWN and snake_velocity != [0, -CELL_SIZE]:
             snake_velocity = [0, CELL_SIZE]
+            print("down")
 
 
 def create_snake_segment():
@@ -89,10 +80,9 @@ def create_snake_segment():
 
 
 def high_score_updater():
-    global high_score
-    if score >= high_score:
-        json_file_manager.write_json_data('highScore', score)
-        high_score = score
+    if base_data.score >= base_data.high_score:
+        json_file_manager.write_json_data('highScore', base_data.score)
+        base_data.high_score = base_data.score
 
 
 def snake_transportation():
@@ -115,28 +105,30 @@ def snake_death():
         pygame.mixer_music.load(join('Assets/sound', 'gameOver.wav'))
         pygame.mixer.music.play(0)  # play at once
         from Game_over_screen import game_over_loop
-        game_over_loop(score, high_score)
+        game_over_loop(base_data.score, base_data.high_score)
 
 
 def snake_collision_detector(snake, food):
-    global food_pos, score
+    global food_pos
     if snake.colliderect(food):
         from os.path import join
         pygame.mixer_music.load(join('Assets/sound', 'eat.wav'))
         pygame.mixer.music.play(0)  # play at once
-        food_pos = random_position_generator()
-        score += 1
+        food_pos = base_data.random_position_generator()
+        base_data.score += 1
     else:
         if not paused:
             snake_pos.pop()
 
+    magic_food_manager.magic_food_stimulator()
+
 
 def reset_game():
-    global score, snake_pos, food_pos, snake_velocity
-    score = 0
+    global snake_pos, food_pos, snake_velocity
+    base_data.score = 0
     snake_velocity = [CELL_SIZE, 0]
     snake_pos = [[GRID_WIDTH // 2, GRID_HEIGHT // 2]]
-    food_pos = random_position_generator()
+    food_pos = base_data.random_position_generator()
 
 
 temp_snake_velocity = 0
