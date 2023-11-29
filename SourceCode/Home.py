@@ -5,7 +5,7 @@ import Defination
 import graphics
 from alignment import CreateWindow
 import json_file_manager
-
+import base_data
 pygame.init()
 instance = CreateWindow()
 instance.create("Home")
@@ -24,13 +24,13 @@ def level_value_setter(lvl):
     match lvl:
         case 0:
             easy_color = Color.BG_GREEN
-            Defination.FPS = 7
+            base_data.FPS = 7
         case 1:
             medium_color = Color.TEXT_ORANGE
-            Defination.FPS = 10
+            base_data.FPS = 10
         case 2:
             hard_color = Color.RED
-            Defination.FPS = 20
+            base_data.FPS = 20
 
 
 # GAME VARIABLES
@@ -59,7 +59,7 @@ def show_score_popup():
     graphics.load_text(instance.SCREEN, graphics.pilot_font, "MEDIUM", medium_color, (True, 255))
     graphics.load_text(instance.SCREEN, graphics.pilot_font, "HARD", hard_color, (True, 285))
     graphics.load_text(instance.SCREEN, graphics.pilot_font, "HIGH SCORE", Color.WHITE, (True, 360), (-40, 0))
-    graphics.load_text(instance.SCREEN, graphics.pilot_font, f": {Defination.high_score}",
+    graphics.load_text(instance.SCREEN, graphics.pilot_font, f": {base_data.high_score}",
                        Color.DARK_RED, (True, 360), (100, 0))
     graphics.load_image(instance.SCREEN, graphics.reset_img, (True, 400))
     graphics.load_image(instance.SCREEN, graphics.close_button, (True, 93))
@@ -89,7 +89,7 @@ def mouse_event_handler(event):
     elif graphics.get_rect_object(graphics.load_image(instance.SCREEN, graphics.reset_img,
                                                       (True, 400))).collidepoint(event.pos) and not run:
         json_file_manager.write_json_data('highScore', 0)
-        Defination.high_score = 0
+        base_data.high_score = 0
     elif graphics.get_rect_object(graphics.load_image(instance.SCREEN,
                                                       graphics.rank_button_img,
                                                       (True, 450))).collidepoint(event.pos):

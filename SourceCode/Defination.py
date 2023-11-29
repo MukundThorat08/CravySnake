@@ -58,20 +58,16 @@ def snake_mover(event):
     elif event.key == pygame.K_ESCAPE:
         from Home import home_loop
         home_loop()
+
     if not paused:
-        
         if event.key == pygame.K_LEFT and snake_velocity != [CELL_SIZE, 0]:
             snake_velocity = [-CELL_SIZE, 0]
-            print("left")
         elif event.key == pygame.K_RIGHT and snake_velocity != [-CELL_SIZE, 0]:
             snake_velocity = [CELL_SIZE, 0]
-            print("right")
         elif event.key == pygame.K_UP and snake_velocity != [0, CELL_SIZE]:
             snake_velocity = [0, -CELL_SIZE]
-            print("up")
         elif event.key == pygame.K_DOWN and snake_velocity != [0, -CELL_SIZE]:
             snake_velocity = [0, CELL_SIZE]
-            print("down")
 
 
 def create_snake_segment():
@@ -129,6 +125,10 @@ def reset_game():
     snake_velocity = [CELL_SIZE, 0]
     snake_pos = [[GRID_WIDTH // 2, GRID_HEIGHT // 2]]
     food_pos = base_data.random_position_generator()
+    magic_food_manager.time_counter = 0
+    magic_food_manager.display_magic_food = False
+    magic_food_manager.run_at_once = False
+    magic_food_manager.pre_score = 0
 
 
 temp_snake_velocity = 0

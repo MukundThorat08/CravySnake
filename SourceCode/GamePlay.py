@@ -18,7 +18,6 @@ def game_loop():  # Sequence of execution of functions matters!
                 Defination.snake_mover(event)
             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 Defination.mouse_event_controller(event)
-
         Defination.high_score_updater()
         Defination.draw_graphics()
         Defination.snake_transportation()
