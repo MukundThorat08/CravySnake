@@ -30,7 +30,7 @@ def level_value_setter(lvl):
             base_data.FPS = 10
         case 2:
             hard_color = Color.RED
-            base_data.FPS = 20
+            base_data.FPS = 15
 
 
 # GAME VARIABLES

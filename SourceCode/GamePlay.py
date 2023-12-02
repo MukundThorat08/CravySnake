@@ -1,6 +1,7 @@
 import pygame
 from sys import exit
-from base_data import FPS
+
+import base_data
 
 # local modules
 import Defination
@@ -32,4 +33,4 @@ def game_loop():  # Sequence of execution of functions matters!
         Defination.snake_collision_detector(snake, food)
         check_is_database_exists()
         pygame.display.update()
-        clock.tick(FPS)
+        clock.tick(base_data.FPS)
