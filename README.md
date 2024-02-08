@@ -6,4 +6,4 @@
 2. Now Just run the 'Cravy Snake --Installer'
 3. Then complete Installation process, that's it enjoy the Game.
 <br><br>
-### If you like please give stars to the github directory :)
+- ### If you like please give stars to the github directory :)
